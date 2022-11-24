@@ -1,0 +1,38 @@
+<select-collection class="steps" data-step="1">
+  {% if section.settings.heading != blank %}
+    <div class="row">
+      <div class="col-12 col-lg-6 col-md-8 text-center mb-md-5 mb-4 mx-auto">
+        <h3 class="section-title mb-3">{{ section.settings.heading }}</h3>
+      </div>
+    </div>
+  {% endif %}
+  <div class="row">
+    {% for i in (1..3) %}
+      {% capture collection %}collection_{{ i }}{% endcapture %}
+      <div class="col-4 col-md-4 col-sm-12">
+        <div class="subscription-collection-wrapper text-center">
+          {% if section.settings[collection].image %}
+            <div class="collection-image">
+              <img srcset="
+                            {%- if section.settings[collection].image.src.width >= 350 -%}{{ section.settings[collection].image.src | image_url: width: 350 }} 350w,{%- endif -%}
+                            {%- if section.settings[collection].image.src.width >= 550 -%}{{ section.settings[collection].image.src | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if section.settings[collection].image.src.width >= 750 -%}{{ section.settings[collection].image.src | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if section.settings[collection].image.src.width >= 991 -%}{{ section.settings[collection].image.src | image_url: width: 991 }} 991w,{%- endif -%}
+                            {%- if section.settings[collection].image.src.width >= 1200 -%}{{ section.settings[collection].image.src | image_url: width: 1200 }} 1200w,{%- endif -%}
+                            {%- if section.settings[collection].image.src.width >= 1500 -%}{{ section.settings[collection].image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ section.settings[collection].image.src | image_url }} {{ image.src.width }}w" src="{{ section.settings[collection].image.src | image_url: width: 1500 }}" loading="lazy" data-variant-title="{{ section.settings[collection].image.alt | escape }}" sizes="(min-width: {{ settings.container_width }}) {{ settings.container_width }}, 100vw" alt="{{ section.settings[collection].image.alt | escape }}" width="{{ section.settings[collection].image.src.width }}" height="{{ section.settings[collection].image.src.width | divided_by: image.src.aspect_ratio | round }}">
+            </div>
+          {% endif %}
+          <div class="collection-overlay">
+            <div class="collection-title mt-md-2 mb-md-2 mx-auto">
+              <h5>{{ section.settings[collection].title }}</h5>
+            </div>
+            <div class='collection-select-button'>
+              <button class="btn btn-primary btn-sm" data-type="{{ forloop.index }}">{{ 'select' }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</select-collection>

@@ -1,0 +1,97 @@
+<section class="section-content" data-section-id="{{ section.id }}" style="background:{{ section.settings.section_bg_color }}; color:{{ section.settings.section_txt_color }}">
+    <div class="{% if section.settings.fluid_layout %}container-fluid{% else %}container{% endif %}">
+      <subscription-section>
+        {% if section.settings.collection_1 != black or  section.settings.collection_2 != black  or  section.settings.collection_3 != black  %}
+          {% render 'subscription-funnel-step1' %}
+        {% endif %}
+        {% if section.settings.heading_2 != black %}
+          {% render 'subscription-funnel-step2' %}
+        {% endif %}
+        {% if section.settings.heading_3 != black %}
+          {% render 'subscription-funnel-step3' %}
+        {% endif %}
+        </subscription-section>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Recharge-funnel-sections",
+    "settings": [
+       {
+        "type": "header",
+        "content": "Layout"
+       },
+       {
+        "type": "checkbox",
+        "id": "fluid_layout",
+        "label": "Full Width Layout?",
+        "default": false
+       },
+       {
+        "type": "header",
+        "content": "Styling"
+       },
+       {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Background Color",
+        "default": "#FAFAF7"
+       },
+       {
+        "type": "color",
+        "id": "section_txt_color",
+        "label": "Text Color",
+        "default": "#222222"
+       },
+       { 
+         "type":"header",
+         "content":"Step 1"
+       },
+       {
+           "type":"text",
+          "label":"Heading",
+          "id":"heading"
+      },
+      {
+          "type":"collection",
+          "label":"Collection One",
+          "id":"collection_1"
+      },
+      {
+          "type":"collection",
+          "label":"Collection Two",
+          "id":"collection_2"
+       },
+       {
+           "type":"collection",
+           "label":"Collection Three",
+           "id":"collection_3"
+       },
+       { 
+         "type":"header",
+         "content":"Step 2"
+       },
+       {
+            "type":"text",
+            "label":"Heading",
+            "id":"heading_2"
+       },
+       { 
+         "type":"header",
+         "content":"Step 3"
+       },
+       {
+            "type":"text",
+            "label":"Heading",
+            "id":"heading_3"
+        }
+      
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

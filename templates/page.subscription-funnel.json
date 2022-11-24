@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "template-subscription-funnel",
+      "settings": {
+        "fluid_layout": false,
+        "section_bg_color": "#FAFAF7",
+        "section_txt_color": "#222222",
+        "heading": "Step 1",
+        "collection_1": "block-one",
+        "collection_2": "block-two",
+        "collection_3": "block-three",
+        "heading_2": "Step 2",
+        "heading_3": "Step 3"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

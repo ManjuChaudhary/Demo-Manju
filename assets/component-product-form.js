@@ -209,8 +209,10 @@ class VariantSelects extends HTMLElement {
     if(this.formType == 'product-page') window.history.replaceState({ }, '', `${this.dataset.url}?variant=${currentVariant.id}`);
 
     // update variant input with currentVariant Id
+   
     const input = this.form.querySelector('input[name="id"]');
     input.value = currentVariant.id;
+    this.form.setAttribute("data-current-varinat", currentVariant.id);
   }
 
   /**

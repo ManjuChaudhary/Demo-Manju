@@ -72,3 +72,7 @@
 <script src="{{ 'sections.js' | asset_url }}" defer></script>
 {%- endif -%}
 
+{%- comment -%} Article Page JS {%- endcomment -%}
+{%- if template == 'page.subscription-funnel' -%}
+<script src="{{ 'subscription.js' | asset_url }}" defer></script>
+{%- endif -%}

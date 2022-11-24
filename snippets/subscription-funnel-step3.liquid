@@ -1,0 +1,35 @@
+<select-frequency>
+  <div class="d-none steps" data-step="3" data-step-name="select-frequency">
+    <button class="btn btn-primary btn-sm backBtn">{{ 'Back' }}</button>
+    {% if section.settings.heading_3 != blank %}
+      <div class="row">
+        <div class="col-12 col-lg-6 col-md-8 text-center mb-md-5 mb-4 mx-auto">
+          <h3 class="section-title mb-3">{{ section.settings.heading_3 }}</h3>
+        </div>
+      </div>
+    {% endif %}
+    <div class="row" data-freqWrapper>
+      <div class="col-12 mb-3 mb-lg-0 col-lg-4 frequency" data-frequency="Delivery every 2 Months" data-sellingplanid="">
+        <span class="d-none"></span>
+        <p class="border fw-bold p-5 text-center text-uppercase h-100 frequency-wrapper" data-frequencies="Delivery every 2 Months">
+          {{ 'Delivery every 2 Months' }}
+        </p>
+      </div>
+      <div class="col-12 mb-3 mb-lg-0 col-lg-4 frequency" data-frequency="Delivery every 4 Months" data-sellingplanid="">
+        <span class="d-none"></span>
+        <p class="border fw-bold p-5 text-center text-uppercase h-100 frequency-wrapper" data-frequencies="Delivery every 4 Months">
+          {{ 'Delivery every 4 Months' }}
+        </p>
+      </div>
+      <div class="col-12 mb-3 mb-lg-0 col-lg-4 frequency" data-frequency="Delivery every 6 Months" data-sellingplanid="">
+        <span class="d-none"></span>
+        <p class="border fw-bold p-5 text-center text-uppercase h-100 frequency-wrapper" data-frequencies="Delivery every 6 Months">
+          {{ 'Delivery every 6 Months' }}
+        </p>
+      </div>
+    </div>
+    <div class="add-to-cart-button">
+      <button class="btn btn-primary btn-sm">{{ 'Add to cart' }}</button>
+    </div>
+  </div>
+</select-frequency>

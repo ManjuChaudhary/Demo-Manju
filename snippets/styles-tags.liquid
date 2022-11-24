@@ -60,3 +60,8 @@
 {%- if template.directory == 'customers' -%}
     <link href="{{ 'template-account.css' | asset_url }}" rel="stylesheet" type="text/css">
 {%- endif -%}
+
+{%- comment -%} Account page css {%- endcomment -%}
+{%- if page.handle == 'recharge-funnel' -%}
+    <link href="{{ 'subscription.css' | asset_url }}" rel="stylesheet" type="text/css">
+{%- endif -%}

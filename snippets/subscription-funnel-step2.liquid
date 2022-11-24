@@ -1,0 +1,77 @@
+<select-products class="d-none steps" data-step="2">
+  <button class="btn btn-primary btn-sm backBtn">{{ 'Back' }}</button>
+  {% if section.settings.heading != blank %}
+    <div class="row">
+      <div class="col-12 col-lg-6 col-md-8 text-center mb-md-5 mb-4 mx-auto">
+        <h3 class="section-title mb-3">{{ section.settings.heading_2 }}</h3>
+      </div>
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-8 col-md-8 col-sm-12  funnel-products-section">
+      {% assign box-one-collection = section.settings.collection_1 | handleize %}
+      <div class="row funnel-selcted-box-products box-1-products d-none" data-type="1">
+        {% for product in collections[box-one-collection].products %}
+          <div class="col-4 col-md-4 col-sm-12 products-wrapper" data-productId="{{ product.id }}">
+            <div class="products-container" data-title="{{product.title}}">
+              {% render 'card-product-style-generic', product: product %}
+              <div class="product-select-btn mt-md-5">
+                <button class="btn btn-primary btn-sm select">{{ 'select' }}</button>
+              </div>
+              <div class="product-selected-btn d-none mt-md-5">
+                <button class="btn btn-secondary btn-sm selected">{{ 'selected' }}</button>
+              </div>
+            </div>
+            <script type="application/json" data-productJson="{{ product.id }}">
+              {{ product | json }}
+            </script>
+          </div>
+        {% endfor %}
+      </div>
+      {% assign box-two-collection = section.settings.collection_2 | handleize %}
+      <div class="row funnel-selcted-box-products box-2-products d-none" data-type="2">
+        {% for product in collections[box-two-collection].products %}
+          <div class="col-4 col-md-4 col-sm-12  products-wrapper" data-productId="{{ product.id }}">
+            <div class="products-container" data-title="{{product.title}}">
+              {% render 'card-product-style-generic', product: product %}
+              <div class="dn-selling-plan-container">
+                <div class="product-select-btn mt-md-5">
+                  <button class="btn btn-primary btn-sm select">{{ 'select' }}</button>
+                </div>
+                <div class="product-selected-btn d-none mt-md-5">
+                  <button class="btn btn-secondary btn-sm selected">{{ 'selected' }}</button>
+                </div>
+              </div>
+            </div>
+            <script type="application/json" data-productJson="{{ product.id }}">
+              {{ product | json }}
+            </script>
+          </div>
+        {% endfor %}
+      </div>
+      {% assign box-three-collection = section.settings.collection_3 | handleize %}
+      <div class="row funnel-selcted-box-products box-3-products d-none" data-type="3">
+        {% for product in collections[box-three-collection].products %}
+          <div class="col-4 col-md-4 col-sm-12  products-wrapper" data-productId="{{ product.id }}">
+            <div class="products-container" data-title="{{product.title}}">
+              {% render 'card-product-style-generic', product: product %}
+              <div class="product-select-btn mt-md-5">
+                <button class="btn btn-primary btn-sm select">{{ 'select' }}</button>
+              </div>
+              <div class="product-selected-btn d-none mt-md-5">
+                <button class="btn btn-secondary btn-sm selected">{{ 'selected' }}</button>
+              </div>
+            </div>
+            <script type="application/json" data-productJson="{{ product.id }}">
+              {{ product | json }}
+            </script>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-4 col-md-4 col-sm-12 selected-products">
+      <div class="selected-prouducts-stack"></div>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-sm nextBtn mt-md-5 mb-md-5">{{ 'Next' }}</button>
+</select-products>
