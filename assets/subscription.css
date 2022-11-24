@@ -23,4 +23,12 @@ button.btn.btn-primary.btn-sm.nextBtn {
 }
 .frequency.active p {
     border: 2px solid rgb(83, 29, 29) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-to-cart-button {
+    margin-top: 40px;
+    margin: 30px auto 0;
+    text-align: center;
 }
