@@ -72,7 +72,12 @@
 <script src="{{ 'sections.js' | asset_url }}" defer></script>
 {%- endif -%}
 
-{%- comment -%} Article Page JS {%- endcomment -%}
+{%- comment -%} subscription JS {%- endcomment -%}
 {%- if template == 'page.subscription-funnel' -%}
 <script src="{{ 'subscription.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- comment -%} recharge-subscription-dahsboard JS {%- endcomment -%}
+{%- if template == 'account' -%}
+<script src="{{ 'recharge-dashboard.js' | asset_url }}" defer></script>
 {%- endif -%}
