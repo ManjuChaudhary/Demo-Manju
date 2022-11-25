@@ -47,7 +47,7 @@
 
     {% comment %} Pagination css {% endcomment %}
     <link href="{{ 'component-pagination.css' | asset_url }}" rel="stylesheet" type="text/css">
-{%- endif -%}
+{%- endif -%} c
 
 <link href="{{ 'component-modal.css' | asset_url }}" rel="stylesheet" type="text/css">
 
@@ -65,3 +65,10 @@
 {%- if page.handle == 'recharge-funnel' -%}
     <link href="{{ 'subscription.css' | asset_url }}" rel="stylesheet" type="text/css">
 {%- endif -%}
+
+{%- comment -%} Account page css {%- endcomment -%}
+{%- if template == 'account' -%}
+    <link href="{{ 'recharge-dahsboard.css' | asset_url }}" rel="stylesheet" type="text/css">
+{%- endif -%}
+
+
