@@ -186,6 +186,7 @@ class AjaxCart extends HTMLElement {
           div.classList.remove('d-none');
         });
       }
+
       this.setAttribute('updating', false);
 
       let headerHTML = new DOMParser().parseFromString(response['header'], 'text/html');
@@ -220,6 +221,60 @@ class AjaxCart extends HTMLElement {
         });
     }
   
+
+    _cartUpdate(_state){
+      let updatedCartTotalPrice = _state.items_subtotal_price;
+          console.log(parseInt(updatedCartTotalPrice));
+          let gwp_cart_total = document.querySelector(".gwp_cart_total_price").innerHTML;
+          console.log(parseInt(gwp_cart_total));
+          if(updatedCartTotalPrice >=  parseInt(gwp_cart_total))
+          {
+            console.log("macthed");
+            let data= {
+              updates:{
+                43863497507094:1
+              }
+            }
+            fetch('/cart/update.js', {
+              method: 'POST',
+              credentials: 'same-origin',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }).then(response => {
+              return response.json();
+            }).then((response) => {
+              console.log(response);
+              this.getCartData();
+            }).catch((error) => {
+              console.log(error);
+            });
+          }
+          else{
+            console.log("notmatched_again");
+            let data= {
+              updates:{
+                43863497507094:0
+              }
+            }
+            fetch('/cart/update.js', {
+              method: 'POST',
+              credentials: 'same-origin',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }).then(response => {
+              return response.json();
+            }).then((response) => {
+              console.log(response);
+              this.getCartData();
+            }).catch((error) => {
+              console.log(error);
+            });
+          }
+    }
      /**
      * Update Quantity API call 
      *
@@ -237,10 +292,10 @@ class AjaxCart extends HTMLElement {
   
         fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body }})
         .then((response) => {
-            return response.text();
+            return response.json();
         })
         .then((_state) => {
-          this.getCartData();
+          this._cartUpdate(_state);
           setTimeout(() => {
             if(lineItem){ lineItem.classList.remove('updating'); }
           }, 1000);
