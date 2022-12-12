@@ -119,7 +119,7 @@
                                                                     {%- endif -%}
                                                                 {%- endfor -%}
                                                                 </ul> 
-<button type='button' style='display: none;' class='edit_cart_option btn btn--primary button' data-product_id='{{item.product_id}}' data-key='{{item.key}}' data-variant_id='{{item.variant_id}}' data-quantity='{{item.quantity}}'>Edit Options</button>
+
                                                             {% endif %}
                                 
                                                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
@@ -214,7 +214,7 @@
                             <h4 class="text-uppercase my-0">{{ 'templates.cart.total' | t }}:</h4>
                         </div>
                         <div class="col-6 text-end">
-                            <h4 class="my-0" data-cartTotal><span class="money"> {{ cart.total_price | money }}</span></h4>
+                            <h4  data-hulkapps-cart-total class="my-0" data-cartTotal><span class="money"> {{ cart.total_price | money }}</span></h4>
                         </div>
                     </div>
 
