@@ -194,12 +194,12 @@ class VariantSelects extends HTMLElement {
   .then(response => response.text())
   .then(text => {
     console.log(text);
-    // const container = document.querySelector('[data-store-availability-container]');
-    // const pickupAvailabilityHTML = new DOMParser()
-    //   .parseFromString(text, 'text/html')
-    //   .querySelector('.shopify-section');
+    const container = document.querySelector('[data-store-availability-container]');
+    const pickupAvailabilityHTML = new DOMParser()
+      .parseFromString(text, 'text/html')
+      .querySelector('.shopify-section');
 
-    // container.appendChild(pickupAvailabilityHTML);
+    container.appendChild(pickupAvailabilityHTML);
   })
   .catch(e => {
     console.error(e);
